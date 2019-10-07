@@ -16,7 +16,7 @@ For instance, image classifiers will increasingly be used to:
 
 These are just a few of many examples of how image classification will ultimately shape the future of the world we live in.
 
-So, let’s take a look at an example of how we can build our own image classifier. ![The full data folder and Jupyter Notebook is available here.](https://github.com/MGCodesandStats/image-recognition-with-keras-convolutional-neural-networks)
+So, let’s take a look at an example of how we can build our own image classifier. [The full data folder and Jupyter Notebook is available here.](https://github.com/MGCodesandStats/image-recognition-with-keras-convolutional-neural-networks)
 
 ## Our Task
 
