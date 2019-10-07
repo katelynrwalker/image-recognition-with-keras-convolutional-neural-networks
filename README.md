@@ -207,7 +207,7 @@ Here are some examples:
 
 ![prediction2](prediction2.JPG)
 
-With the model correctly predicting the category for 14 out of 15 images (93%), we can see that the model has shown success in predicting against unseen images.
+With the model correctly predicting the category for **14 out of 15 images (93%)**, we can see that the model has shown success in predicting against unseen images.
 
 # Conclusion
 
