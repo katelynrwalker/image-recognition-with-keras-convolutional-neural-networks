@@ -201,11 +201,11 @@ Here are some examples:
 
 **Prediction for car image**
 
-![prediction1](prediction1.jpg)
+![prediction1](prediction1.JPG)
 
 **Prediction for plane image**
 
-![prediction2](prediction2.jpg)
+![prediction2](prediction2.JPG)
 
 With the model correctly predicting the category for 14 out of 15 images (93%), we can see that the model has shown success in predicting against unseen images.
 
