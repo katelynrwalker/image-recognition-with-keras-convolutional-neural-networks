@@ -16,7 +16,7 @@ For instance, image classifiers will increasingly be used to:
 
 These are just a few of many examples of how image classification will ultimately shape the future of the world we live in.
 
-So, let’s take a look at an example of how we can build our own image classifier.
+So, let’s take a look at an example of how we can build our own image classifier. ![The full data folder and Jupyter Notebook is available here.](https://github.com/MGCodesandStats/image-recognition-with-keras-convolutional-neural-networks)
 
 ## Our Task
 
@@ -36,7 +36,32 @@ To do this, 80 images for each class are used for the training set, 20 images ar
 
 A sequential neural network with input shape (64, 64, 3) is configured:
 
-<script src="https://gist.github.com/MGCodesandStats/c0fcef19a5c013b344f9d793a3078f61.js"></script>
+```
+# Configure the CNN (Convolutional Neural Network).
+
+classifier = Sequential()
+
+# Convolution - extracting appropriate features from the input image.
+# Non-Linearity (RELU) - replacing all negative pixel values in feature map by zero.
+
+classifier.add(Conv2D(32, (3, 3), input_shape=(64, 64, 3),
+               activation='relu'))
+
+# Pooling: reduces dimensionality of the feature maps but keeps the most important information.
+
+classifier.add(MaxPooling2D(pool_size=(2, 2)))
+
+# Adding a second convolutional layer and flattening in order to arrange 3D volumes into a 1D vector.
+
+classifier.add(Conv2D(32, (3, 3), activation='relu'))
+classifier.add(MaxPooling2D(pool_size=(2, 2)))
+classifier.add(Flatten())
+
+# Fully connected layers: ensures connections to all activations in the previous layer.
+
+classifier.add(Dense(units=128, activation='relu'))
+classifier.add(Dense(units=1, activation='sigmoid'))
+```
 
 The classifier is then trained using the **binary crossentropy** loss function and **adam** optimizer.
 
@@ -52,11 +77,11 @@ test_imagedata = ImageDataGenerator(rescale=1. / 255)
 training_set = \
     train_imagedata.flow_from_directory('data/training_set'
         , target_size=(64, 64), batch_size=32, class_mode='binary')
-test_set = \
-    test_imagedata.flow_from_directory('data/test_set'
+val_set = \
+    test_imagedata.flow_from_directory('data/val_set'
         , target_size=(64, 64), batch_size=32, class_mode='binary')
 history=classifier.fit_generator(training_set, steps_per_epoch=30, epochs=30,
-                         validation_data=test_set,
+                         validation_data=val_set,
                          validation_steps=30)
 ```
 
@@ -66,14 +91,14 @@ Here are the results:
 Found 160 images belonging to 2 classes.
 Found 40 images belonging to 2 classes.
 Epoch 1/30
-30/30 [==============================] - 39s 1s/step - loss: 0.4017 - accuracy: 0.7990 - val_loss: 0.6963 - val_accuracy: 0.7000
+30/30 [==============================] - 15s 492ms/step - loss: 0.5158 - accuracy: 0.7469 - val_loss: 1.0469 - val_accuracy: 0.6750
 Epoch 2/30
-30/30 [==============================] - 38s 1s/step - loss: 0.2355 - accuracy: 0.9021 - val_loss: 0.3809 - val_accuracy: 0.8500
+30/30 [==============================] - 13s 448ms/step - loss: 0.2550 - accuracy: 0.9042 - val_loss: 0.5266 - val_accuracy: 0.7750
 ...
 Epoch 29/30
-30/30 [==============================] - 37s 1s/step - loss: 3.5012e-04 - accuracy: 1.0000 - val_loss: 0.8540 - val_accuracy: 0.8750
+30/30 [==============================] - 40s 1s/step - loss: 0.0014 - accuracy: 1.0000 - val_loss: 1.3203 - val_accuracy: 0.8500
 Epoch 30/30
-30/30 [==============================] - 38s 1s/step - loss: 5.9506e-04 - accuracy: 1.0000 - val_loss: 1.1977 - val_accuracy: 0.8500
+30/30 [==============================] - 13s 444ms/step - loss: 9.6358e-04 - accuracy: 1.0000 - val_loss: 0.9405 - val_accuracy: 0.8750
 ```
 
 As we can see, we have achieved roughly an 80-85% accuracy range. However, the model loss is also increasing as we increase the number of epochs.
@@ -99,7 +124,6 @@ Using classification weights trained on the **imagenet** database, the model can
 Here is a summary of the model:
 
 ```
-
 Model: "vgg16"
 _________________________________________________________________
 Layer (type)                 Output Shape              Param #   
