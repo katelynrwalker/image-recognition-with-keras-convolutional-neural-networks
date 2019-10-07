@@ -6,7 +6,7 @@
 
 # Image Recognition with Keras: Convolutional Neural Networks
 
-Image recognition and classification is a rapidly growing field in the area of machine learning. In particular, object recognition is a key feature of image classification, and the commercial implications of this are vast.
+Image recognition and classification is a rapidly growing field in the area of machine learning. In particular, object recognition is a key feature of image classification, and the commercial implications of this are numerous.
 
 For instance, image classifiers will increasingly be used to:
 
@@ -16,7 +16,7 @@ For instance, image classifiers will increasingly be used to:
 
 These are just a few of many examples of how image classification will ultimately shape the future of the world we live in.
 
-So, let’s take a look at an example of how we can build our own image classifier.
+So, let’s take a look at an example of how we can build our own image classifier. [The full data folder and Jupyter Notebook is available here.](https://github.com/MGCodesandStats/image-recognition-with-keras-convolutional-neural-networks)
 
 ## Our Task
 
@@ -77,11 +77,11 @@ test_imagedata = ImageDataGenerator(rescale=1. / 255)
 training_set = \
     train_imagedata.flow_from_directory('data/training_set'
         , target_size=(64, 64), batch_size=32, class_mode='binary')
-test_set = \
-    test_imagedata.flow_from_directory('data/test_set'
+val_set = \
+    test_imagedata.flow_from_directory('data/val_set'
         , target_size=(64, 64), batch_size=32, class_mode='binary')
 history=classifier.fit_generator(training_set, steps_per_epoch=30, epochs=30,
-                         validation_data=test_set,
+                         validation_data=val_set,
                          validation_steps=30)
 ```
 
@@ -91,17 +91,17 @@ Here are the results:
 Found 160 images belonging to 2 classes.
 Found 40 images belonging to 2 classes.
 Epoch 1/30
-30/30 [==============================] - 39s 1s/step - loss: 0.4017 - accuracy: 0.7990 - val_loss: 0.6963 - val_accuracy: 0.7000
+30/30 [==============================] - 15s 492ms/step - loss: 0.5158 - accuracy: 0.7469 - val_loss: 1.0469 - val_accuracy: 0.6750
 Epoch 2/30
-30/30 [==============================] - 38s 1s/step - loss: 0.2355 - accuracy: 0.9021 - val_loss: 0.3809 - val_accuracy: 0.8500
+30/30 [==============================] - 13s 448ms/step - loss: 0.2550 - accuracy: 0.9042 - val_loss: 0.5266 - val_accuracy: 0.7750
 ...
 Epoch 29/30
-30/30 [==============================] - 37s 1s/step - loss: 3.5012e-04 - accuracy: 1.0000 - val_loss: 0.8540 - val_accuracy: 0.8750
+30/30 [==============================] - 40s 1s/step - loss: 0.0014 - accuracy: 1.0000 - val_loss: 1.3203 - val_accuracy: 0.8500
 Epoch 30/30
-30/30 [==============================] - 38s 1s/step - loss: 5.9506e-04 - accuracy: 1.0000 - val_loss: 1.1977 - val_accuracy: 0.8500
+30/30 [==============================] - 13s 444ms/step - loss: 9.6358e-04 - accuracy: 1.0000 - val_loss: 0.9405 - val_accuracy: 0.8750
 ```
 
-As we can see, we have achieved roughly an 80-85% accuracy range. However, the model loss is also increasing as we increase the number of epochs.
+As we can see below, we have achieved roughly an 80-85% accuracy range. However, the model loss is also increasing as we increase the number of epochs.
 
 **Model Loss**
 
@@ -124,7 +124,6 @@ Using classification weights trained on the **imagenet** database, the model can
 Here is a summary of the model:
 
 ```
-
 Model: "vgg16"
 _________________________________________________________________
 Layer (type)                 Output Shape              Param #   
@@ -174,11 +173,11 @@ Non-trainable params: 14,714,688
 
 The Sequential model is defined, with Dropout introduced to further reduce overfitting, and the training and validation directories are defined.
 
-![snapshot1](snapshot1.png)
+![snapshot1](snapshot1.JPG)
 
 The train and validation generators are defined, and the model is trained over 30 epochs:
 
-![snapshot2](snapshot2.png)
+![snapshot2](snapshot2.JPG)
 
 Let's take a look at the model loss and accuracy:
 
@@ -196,9 +195,19 @@ We can see that the validation accuracy has remained more or less the same, whil
 
 The next step is to now test the prediction accuracy of the model against unseen data or test data (i.e. images that have not been used in either the training or validation sets).
 
-![unseen](unseen.png)
+In the [data/test](https://github.com/MGCodesandStats/image-recognition-with-keras-convolutional-neural-networks/tree/master/data/test) folder, 15 unseen images (separate from the training and validation sets) are used for prediction purposes by the developed model. With cars having a label of **0** and planes having a label of **1**, the prediction for each image is yielded.
 
-With an accuracy of 80% against the test set, we can see that the model has shown success in predicting against unseen images.
+Here are two examples:
+
+**Prediction for car image**
+
+![prediction1](prediction1.JPG)
+
+**Prediction for plane image**
+
+![prediction2](prediction2.JPG)
+
+As can be seen in the Jupyter Notebook, the model correctly predicted the right category for **14 out of 15 images (93%)**. In this regard, the traind model has shown success in predicting against unseen images even with a small training size.
 
 # Conclusion
 
