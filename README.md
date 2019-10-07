@@ -173,11 +173,11 @@ Non-trainable params: 14,714,688
 
 The Sequential model is defined, with Dropout introduced to further reduce overfitting, and the training and validation directories are defined.
 
-![snapshot1](snapshot1.png)
+![snapshot1](snapshot1.jpg)
 
 The train and validation generators are defined, and the model is trained over 30 epochs:
 
-![snapshot2](snapshot2.png)
+![snapshot2](snapshot2.jpg)
 
 Let's take a look at the model loss and accuracy:
 
