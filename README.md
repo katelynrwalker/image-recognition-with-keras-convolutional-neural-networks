@@ -26,7 +26,7 @@ To do this, 80 images for each class are used for the training set, 20 images ar
 
 **Car - Sample Image**
 
-![bmw](data/training_set/cars/bmw-m4-3169357__340.jpg.jpg)
+![52](52.jpg)
 
 **Plane - Sample Image**
 
