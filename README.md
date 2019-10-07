@@ -101,7 +101,7 @@ Epoch 30/30
 30/30 [==============================] - 13s 444ms/step - loss: 9.6358e-04 - accuracy: 1.0000 - val_loss: 0.9405 - val_accuracy: 0.8750
 ```
 
-As we can see, we have achieved roughly an 80-85% accuracy range. However, the model loss is also increasing as we increase the number of epochs.
+As we can see below, we have achieved roughly an 80-85% accuracy range. However, the model loss is also increasing as we increase the number of epochs.
 
 **Model Loss**
 
