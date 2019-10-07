@@ -195,7 +195,7 @@ We can see that the validation accuracy has remained more or less the same, whil
 
 The next step is to now test the prediction accuracy of the model against unseen data or test data (i.e. images that have not been used in either the training or validation sets).
 
-![unseen](unseen.png)
+In the ![data/test](https://github.com/MGCodesandStats/image-recognition-with-keras-convolutional-neural-networks/tree/master/data/test) folder, 
 
 With an accuracy of 80% against the test set, we can see that the model has shown success in predicting against unseen images.
 
