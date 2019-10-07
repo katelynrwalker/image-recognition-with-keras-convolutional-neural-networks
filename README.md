@@ -36,32 +36,7 @@ To do this, 80 images for each class are used for the training set, 20 images ar
 
 A sequential neural network with input shape (64, 64, 3) is configured:
 
-```
-# Configure the CNN (Convolutional Neural Network).
-
-classifier = Sequential()
-
-# Convolution - extracting appropriate features from the input image.
-# Non-Linearity (RELU) - replacing all negative pixel values in feature map by zero.
-
-classifier.add(Conv2D(32, (3, 3), input_shape=(64, 64, 3),
-               activation='relu'))
-
-# Pooling: reduces dimensionality of the feature maps but keeps the most important information.
-
-classifier.add(MaxPooling2D(pool_size=(2, 2)))
-
-# Adding a second convolutional layer and flattening in order to arrange 3D volumes into a 1D vector.
-
-classifier.add(Conv2D(32, (3, 3), activation='relu'))
-classifier.add(MaxPooling2D(pool_size=(2, 2)))
-classifier.add(Flatten())
-
-# Fully connected layers: ensures connections to all activations in the previous layer.
-
-classifier.add(Dense(units=128, activation='relu'))
-classifier.add(Dense(units=1, activation='sigmoid'))
-```
+<script src="https://gist.github.com/MGCodesandStats/c0fcef19a5c013b344f9d793a3078f61.js"></script>
 
 The classifier is then trained using the **binary crossentropy** loss function and **adam** optimizer.
 
