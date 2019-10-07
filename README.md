@@ -197,7 +197,7 @@ The next step is to now test the prediction accuracy of the model against unseen
 
 In the [data/test](https://github.com/MGCodesandStats/image-recognition-with-keras-convolutional-neural-networks/tree/master/data/test) folder, 15 unseen images (separate from the training and validation sets) are used for prediction purposes by the developed model. With cars having a label of **0** and planes having a label of **1**, the prediction for each image is yielded.
 
-Here are some examples:
+Here are two examples:
 
 **Prediction for car image**
 
@@ -207,7 +207,7 @@ Here are some examples:
 
 ![prediction2](prediction2.JPG)
 
-With the model correctly predicting the category for **14 out of 15 images (93%)**, we can see that the model has shown success in predicting against unseen images.
+As can be seen in the Jupyter Notebook, the model correctly predicted the right category for **14 out of 15 images (93%)**. In this regard, the traind model has shown success in predicting against unseen images even with a small training size.
 
 # Conclusion
 
