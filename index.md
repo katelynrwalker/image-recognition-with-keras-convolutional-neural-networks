@@ -220,3 +220,5 @@ In this example, we have seen:
 We have seen that reasonably high levels of accuracy were generated when using a relatively small sample size in conjunction with a VGG16 network. With that being said, the images presented in this example are more on the simplistic side. If we were trying to build a model for face recognition, chances are that a much larger sample size would be needed to account for the greater levels of complexity in the features that would be observed across such images.
 
 That said, depending on the type of images under analysis, it is possible to obtain respectable results with a small sample size when combined with a pretrained network.
+
+Thank you for your time, and I also highly recommend the **Deep Learning with Python** guide by François Chollet - which I consulted when constructing the model for this example. 
