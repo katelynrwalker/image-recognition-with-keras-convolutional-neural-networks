@@ -221,4 +221,4 @@ We have seen that reasonably high levels of accuracy were generated when using a
 
 That said, depending on the type of images under analysis, it is possible to obtain respectable results with a small sample size when combined with a pretrained network.
 
-Thank you for your time, and I also recommend the **Deep Learning with Python** guide by François Chollet - which I consulted when constructing the model for this example. 
+Thank you for your time, and I also highly recommend the **Deep Learning with Python** guide by François Chollet - which I consulted when constructing the model for this example. 
